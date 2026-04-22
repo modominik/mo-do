@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MO-DO NOWAK | Kruszywa, Transport, Usługi Koparką</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* PALETA KOLORÓW: Zielony z banera (#004d40), Żółty (#ffcc00) */
+        :root {
+            --primary-green: #0b4d2c;
+            --accent-yellow: #ffcc00;
+            --dark-grey: #222;
+            --light-grey: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-grey);
+            background-color: var(--white);
+        }
+
+        /* NAGŁÓWEK */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--primary-green);
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .logo span {
+            color: var(--accent-yellow);
+            display: block;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .header-phone {
+            background: var(--primary-green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .header-phone:hover {
+            background: var(--dark-grey);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1533418264835-9871c7c2dbf0?auto=format&fit=crop&q=80&w=1920') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--dark-grey);
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #f7c600;
+        }
+
+        /* USŁUGI */
+        .services {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light-grey);
+            padding: 40px;
+            border-radius: 10px;
+            border-bottom: 5px solid var(--accent-yellow);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        /* FLOTA / SPRZĘT */
+        .fleet {
+            background: var(--primary-green);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .fleet-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .fleet-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1 1 200px;
+        }
+
+        .fleet-item span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-yellow);
+        }
+
+        /* KONTAKT */
+        .contact {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .phone-big {
+            font-size: 4rem;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 900;
+            display: block;
+            margin: 20px 0;
+        }
+
+        .address-box {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* STOPKA */
+        footer {
+            background: var(--dark-grey);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* PRZYCISK PŁYWAJĄCY NA MOBILE */
+        .mobile-call {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 9999;
+            text-decoration: none;
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .phone-big { font-size: 2.5rem; }
+            .mobile-call { display: flex; }
+            .header-phone { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="tel:602354249" class="mobile-call">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                F.H.U. "MO-DO"
+                <span>NOWAK</span>
+            </a>
+            <a href="tel:602354249" class="header-phone">
+                <i class="fas fa-phone-alt"></i> 602 354 249
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Transport i Prace Ziemne</h1>
+        <p>Obsługujemy Garlicę Murowaną i okolice. Oferujemy kruszywa budowlane, ziemię oraz profesjonalne usługi koparko-ładowarką.</p>
+        <a href="tel:602354249" class="cta-button">ZADZWOŃ I ZAMÓW</a>
+    </section>
+
+    <section class="services">
+        <h2 class="section-title">Co oferujemy?</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-truck-moving"></i>
+                <h3>Usługi Transportowe</h3>
+                <p>Transport materiałów sypkich i budowlanych wywrotkami o różnej ładowności.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tractor"></i>
+                <h3>Koparko-ładowarka</h3>
+                <p>Prace ziemne, wykopy, niwelacja terenu profesjonalnym sprzętem 4x4.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mountain"></i>
+                <h3>Kruszywa i Ziemia</h3>
+                <p>Sprzedaż piasku, żwiru oraz wysokiej jakości czarnoziemu (humusu).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="fleet">
+        <h2 class="section-title" style="color: white;">Nasze Możliwości</h2>
+        <p style="margin-bottom: 40px;">Dysponujemy własną flotą transportową dopasowaną do Twoich potrzeb:</p>
+        <div class="fleet-grid">
+            <div class="fleet-item">
+                <span>3.5t</span>
+                Małe dostawy
+            </div>
+            <div class="fleet-item">
+                <span>11t</span>
+                Średni transport
+            </div>
+            <div class="fleet-item">
+                <span>19t</span>
+                Duże inwestycje
+            </div>
+            <div class="fleet-item">
+                <span>4x4</span>
+                Trudny teren
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2 class="section-title">Zapraszamy do kontaktu</h2>
+        <div class="address-box">
+            <p><strong>Dominik Nowak</strong></p>
+            <p>Garlica Murowana, ul. Pograniczna 7</p>
+        </div>
+        <p>Kliknij numer poniżej, aby zadzwonić:</p>
+        <a href="tel:602354249" class="phone-big">602 354 249</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 F.H.U. "MO-DO" NOWAK. Wszelkie prawa zastrzeżone.</p>
+        <p><small>Garlica Murowana | Transport | Kruszywa | Prace Ziemne</small></p>
+    </footer>
+
+</body>
+</html>
